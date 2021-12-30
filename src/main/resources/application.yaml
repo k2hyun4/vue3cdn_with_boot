@@ -1,0 +1,6 @@
+server:
+    port: 41414
+spring:
+    devtools:
+        livereload:
+            enabled: true
