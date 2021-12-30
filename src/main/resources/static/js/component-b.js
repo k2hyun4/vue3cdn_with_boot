@@ -1,5 +1,9 @@
-const componentB = {
-	template: '#b-template'
-};
+const template = `
+	<p>B</p>
+    <p>b</p>
+    <p>비</p>
+`;
 
-export { componentB }
+const componentB = { template: template };
+
+export { componentB };
