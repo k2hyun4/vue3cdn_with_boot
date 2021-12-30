@@ -12,8 +12,12 @@
 <body>
     <div id="main">
         <h1>{{state.message}}</h1>
+        <tm-a></tm-a>
+        <tm-b></tm-b>
     </div>
+    <template th:replace="a"></template>
     <script th:src="@{js/index.js}"></script>
+<!--    <script type="module" th:src="@{js/index.js}"></script>-->
 </body>
 
 </html>
