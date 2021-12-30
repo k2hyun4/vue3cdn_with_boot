@@ -1,19 +1,7 @@
+import { componentA } from "./component-a.js";
+import { componentB } from "./component-b.js";
+
 const { ref } = Vue;
-
-const componentA = {
-	template: '#a-template',
-	setup() {
-		const state = ref({
-			count: 0
-		});
-
-		return { state };
-	}
-};
-
-const componentB = {
-	template: '#b-template'
-};
 
 Vue.createApp({
 	setup() {
