@@ -7,13 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script th:src="@{library/vue.js}"></script>
+    <script th:src="@{library/vue-router/dist/vue-router.global.js}"></script>
 </head>
 <body>
     <div id="main">
         <h1>{{state.message}}</h1>
-        <tm-a></tm-a>
-        <tm-b></tm-b>
-    </div>
+        <div>
+            <router-link to="/">Go To Main</router-link>
+        </div>
+        <div>
+            <router-link to="/about">Go To About</router-link>
+        </div>
+        <router-view></router-view>
     <script type="module" th:src="@{js/index.js}"></script>
 </body>
 

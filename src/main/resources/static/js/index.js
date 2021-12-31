@@ -3,7 +3,7 @@ import { componentB } from "./component-b.js";
 
 const { ref } = Vue;
 
-Vue.createApp({
+const mainVue = Vue.createApp({
 	setup() {
 		const state = ref({
 			message: '헬로 월드!'
@@ -11,7 +11,28 @@ Vue.createApp({
 
 		return { state };
 	}
+});
+
+const { createRouter, createWebHistory, createWebHashHistory, createMemoryHistory } = VueRouter;
+const routes = [
+	{
+		path: '/',
+		name: 'Home',
+		component: componentA, // 동적 import
+	},
+	{
+		path: '/about',
+		name: 'About',
+		component: componentB,
+	},
+];
+
+const router = createRouter({
+	history: createWebHistory(),
+	hash: createWebHashHistory(),
+	abstract: createMemoryHistory(),
+	routes: routes,
 })
-	.component('tm-a', componentA)
-	.component('tm-b', componentB)
+
+mainVue.use(router)
 	.mount('#main');
