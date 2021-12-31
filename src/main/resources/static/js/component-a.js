@@ -3,7 +3,8 @@ const template = `
 	<p>Count : {{state.count}}</p>
 `;
 
-const { ref } = Vue;
+const { ref, onMounted, onUpdated } = Vue;
+
 const componentA = {
 	template: template,
 	setup() {
@@ -11,7 +12,13 @@ const componentA = {
 			count: 0
 		});
 
+		onMounted(() => console.log('[componentA] onMounted'));
+		onUpdated(() => console.log('[componentA] onUpdated'));
+
 		return { state };
+	},
+	created() {
+		console.log('[componentA] created');
 	}
 };
 
