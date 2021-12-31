@@ -3,7 +3,32 @@ import { componentB } from "./component-b.js";
 
 const { ref } = Vue;
 
-Vue.createApp({
+const { createRouter, createWebHistory, createWebHashHistory, createMemoryHistory } = VueRouter;
+const routes = [
+	{
+		path: '/page',
+		alias: '/',
+		component: componentA,
+	},
+	{
+		path: '/page/about',
+		name: 'About',
+		component: componentB
+	},
+	{
+		path: '/:pathMatch(.*)*',
+		redirect: '/404'
+	}
+];
+
+const router = createRouter({
+	history: createWebHistory(),
+	hash: createWebHashHistory(),
+	abstract: createMemoryHistory(),
+	routes: routes,
+});
+
+const mainVue = Vue.createApp({
 	setup() {
 		const state = ref({
 			message: '헬로 월드!'
@@ -11,7 +36,7 @@ Vue.createApp({
 
 		return { state };
 	}
-})
-	.component('tm-a', componentA)
-	.component('tm-b', componentB)
+});
+
+mainVue.use(router)
 	.mount('#main');

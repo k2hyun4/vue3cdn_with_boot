@@ -6,15 +6,21 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script th:src="@{library/vue.js}"></script>
+    <script th:src="@{/library/vue.js}"></script>
+    <script th:src="@{/library/vue-router/dist/vue-router.global.js}"></script>
 </head>
 <body>
     <div id="main">
         <h1>{{state.message}}</h1>
-        <tm-a></tm-a>
-        <tm-b></tm-b>
+        <div>
+            <router-link to="/page">Go To Main</router-link>
+        </div>
+        <div>
+            <router-link to="/page/about">Go To About</router-link>
+        </div>
+        <router-view></router-view>
     </div>
-    <script type="module" th:src="@{js/index.js}"></script>
+    <script type="module" th:src="@{/js/index.js}"></script>
 </body>
 
 </html>
