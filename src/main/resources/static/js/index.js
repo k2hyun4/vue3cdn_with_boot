@@ -3,16 +3,6 @@ import { componentB } from "./component-b.js";
 
 const { ref } = Vue;
 
-const mainVue = Vue.createApp({
-	setup() {
-		const state = ref({
-			message: '헬로 월드!'
-		});
-
-		return { state };
-	}
-});
-
 const { createRouter, createWebHistory, createWebHashHistory, createMemoryHistory } = VueRouter;
 const routes = [
 	{
@@ -33,6 +23,16 @@ const router = createRouter({
 	abstract: createMemoryHistory(),
 	routes: routes,
 })
+
+const mainVue = Vue.createApp({
+	setup() {
+		const state = ref({
+			message: '헬로 월드!'
+		});
+
+		return { state };
+	}
+});
 
 mainVue.use(router)
 	.mount('#main');
