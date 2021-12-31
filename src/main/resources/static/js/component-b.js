@@ -8,8 +8,11 @@ const { onMounted, onUpdated } = Vue;
 const componentB = {
 	template: template,
 	setup() {
-		onMounted(() => console.log('[componentA] onMounted'));
-		onUpdated(() => console.log('[componentA] onUpdated'));
+		onMounted(() => console.log('[componentB] onMounted'));
+		onUpdated(() => console.log('[componentB] onUpdated'));
+	},
+	created() {
+		console.log('[componentB] created');
 	}
 };
 

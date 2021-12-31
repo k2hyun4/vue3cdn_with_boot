@@ -16,6 +16,9 @@ const componentA = {
 		onUpdated(() => console.log('[componentA] onUpdated'));
 
 		return { state };
+	},
+	created() {
+		console.log('[componentA] created');
 	}
 };
 
