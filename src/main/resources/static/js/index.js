@@ -6,15 +6,19 @@ const { ref } = Vue;
 const { createRouter, createWebHistory, createWebHashHistory, createMemoryHistory } = VueRouter;
 const routes = [
 	{
-		path: '/',
-		name: 'Home',
-		component: componentA, // 동적 import
+		path: '/page',
+		alias: '/',
+		component: componentA,
 	},
 	{
-		path: '/about',
+		path: '/page/about',
 		name: 'About',
-		component: componentB,
+		component: componentB
 	},
+	{
+		path: '/:pathMatch(.*)*',
+		redirect: '/404'
+	}
 ];
 
 const router = createRouter({
@@ -22,7 +26,7 @@ const router = createRouter({
 	hash: createWebHashHistory(),
 	abstract: createMemoryHistory(),
 	routes: routes,
-})
+});
 
 const mainVue = Vue.createApp({
 	setup() {
